@@ -27,7 +27,7 @@ class PostRepository extends Repository
         $count = $this->model()->withoutGlobalScopes()->count();
         return $count;
     }
-    public function pagedPosts($page = 10) 
+    public function pagedPosts($page = 7) 
     {
         $posts = Post::select(Post::selectArrayWithOutContent)->with(['tags', 'category'])->orderBy('created_at', 'desc')->paginate($page);
         return $posts;

@@ -20,7 +20,7 @@ class PostController extends Controller
     //获取博客列表
     public function index()
     {
-        $posts = $this->postRepository->pagedPosts(10);
+        $posts = $this->postRepository->pagedPosts(7);
         return $posts;
     }
     //获取单篇博文

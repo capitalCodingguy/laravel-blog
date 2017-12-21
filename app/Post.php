@@ -50,4 +50,9 @@ class Post extends Model
         return $this->morphOne(Configuration::class, 'configurable');
     }
 
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
 }
