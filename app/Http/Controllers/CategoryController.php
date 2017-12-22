@@ -24,4 +24,9 @@ class CategoryController extends Controller
         $categories = $this->categoryRepository->getAll();
         return $categories;
     }
+    public function getCategoryDetail()
+    {
+        $categoryBlogList = $this->categoryRepository->getDetail();
+        return $categoryBlogList;
+    }
 }

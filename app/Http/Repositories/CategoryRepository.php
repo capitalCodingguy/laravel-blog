@@ -25,4 +25,10 @@ class CategoryRepository extends Repository
         return CategoryRepository::$tag;
     }
 
+    public function getDetail()
+    {
+        $posts = $category->posts()->select(Post::selectArrayWithOutContent)->with(['tags', 'category'])->withCount('comments')->orderBy('created_at', 'desc')->paginate(7);
+        return $posts;
+    }
+
 }

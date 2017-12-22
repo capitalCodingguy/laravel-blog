@@ -13,6 +13,7 @@ Route::get('/blog/{slug}', 'PostController@get_blog');
 Route::get('/recommendedPosts', 'PostController@recommended_posts');
 //获取文章分类
 Route::get('/categories', 'CategoryController@getAll');
+Route::get('/category/{name}', 'CategoryController@getCategoryDetail');
 //获取标签
 Route::get('/tag', 'TagController@index');
 //获取标签文章列表

@@ -28,7 +28,7 @@ class PostController extends Controller
         $post = get_post($slug);
         return $post;
     }
-    //推荐文章列表
+    //推荐文章列表 
     public function recommended_posts()
     {
         $recommendedPosts = $this->postRepository->recommendedPosts();
