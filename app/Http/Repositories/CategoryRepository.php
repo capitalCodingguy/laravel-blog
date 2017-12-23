@@ -20,12 +20,20 @@ class CategoryRepository extends Repository
         return $categories;
     }
 
+    public function get($name)
+    {
+        $category = Category::where('name', $name)->first();
+        if($category)
+            abort(404);
+        return $category;
+    }
+
     public function tag()
     {
         return CategoryRepository::$tag;
     }
 
-    public function getDetail()
+    public function getDetail(Category $category)
     {
         $posts = $category->posts()->select(Post::selectArrayWithOutContent)->with(['tags', 'category'])->withCount('comments')->orderBy('created_at', 'desc')->paginate(7);
         return $posts;
