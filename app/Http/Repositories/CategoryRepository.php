@@ -2,8 +2,8 @@
 
 namespace App\Http\Repositories;
 
-use App\Post;
 use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 
 class CategoryRepository extends Repository
@@ -23,8 +23,6 @@ class CategoryRepository extends Repository
     public function get($name)
     {
         $category = Category::where('name', $name)->first();
-        if($category)
-            abort(404);
         return $category;
     }
 
