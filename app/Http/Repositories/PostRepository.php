@@ -45,7 +45,7 @@ class PostRepository extends Repository
         return PostRepository::$tag;
     }
     //推荐文章列表
-    public function recommendedPosts($limit = 5)
+    public function recommendedPosts($limit = 7)
     {
         $recommendedPosts = Post
             ::orderBy('view_count', 'desc')
