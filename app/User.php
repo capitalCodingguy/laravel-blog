@@ -2,10 +2,11 @@
 
 namespace App;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -31,5 +32,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    /** 获取存储在JWT中的key */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    /** JWT的自定义声明 */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
